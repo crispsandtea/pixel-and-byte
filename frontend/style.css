@@ -1,0 +1,33 @@
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#scene {
+  display: flex;
+  gap: 100px;
+}
+
+.character {
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: idle 3s infinite alternate ease-in-out;
+}
+
+#pixel {
+  background-image: url('./pixel.svg');
+}
+
+#byte {
+  background-image: url('./byte.svg');
+}
+
+@keyframes idle {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-10px); }
+}
