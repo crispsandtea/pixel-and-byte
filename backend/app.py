@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-llm = Llama(model_path="models/your-llama-model.gguf")
+llm = Llama(model_path="models/tinyllama-1.1b-chat-v1.0.Q3_K_M.gguf")
 
 @app.get("/dialogue")
 def get_dialogue():
