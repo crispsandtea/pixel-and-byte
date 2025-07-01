@@ -1,10 +1,10 @@
-[phases.setup]
-commands = []
+[build]
+  languages = ["python"]
 
 [phases.install]
-working_directory = "backend"
-commands = ["pip install -r requirements.txt"]
+  working_directory = "backend"
+  commands = ["pip install -r requirements.txt"]
 
 [phases.start]
-working_directory = "backend"
-cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
+  working_directory = "backend"
+  cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
