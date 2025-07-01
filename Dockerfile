@@ -1,7 +1,7 @@
-# Use official Python image
+# Use Python base image
 FROM python:3.11-slim
 
-# Install system packages needed for building llama-cpp-python
+# Install build tools required for compiling packages like llama-cpp-python
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
@@ -10,11 +10,14 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy app files
+# Copy the project files into the container
 COPY . .
 
-# Install Python packages
+# Install Python dependencies
 RUN pip install --no-cache-dir -r backend/requirements.txt
 
-# Run FastAPI app
+# Expose port (optional, but good practice)
+EXPOSE 8000
+
+# Start FastAPI app via uvicorn
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
