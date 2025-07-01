@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from prompts import pixel_prompt, byte_prompt
+from backend.prompts import pixel_prompt, byte_prompt
 from llama_cpp import Llama
 
 app = FastAPI()
